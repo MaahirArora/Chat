@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "concurrently": "^8.2.2"
+    
+  },
+  "scripts": {
+    "chat": "cd chat && npm start",
+    "Backend": "cd Backend && node server.js",
+    "dev": "concurrently \"npm run chat\" \"npm run Backend\""
+  }
+}

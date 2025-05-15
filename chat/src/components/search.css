@@ -1,0 +1,33 @@
+.Wrapper2 {
+    height: 100vh;
+    background-color: rgb(40, 40, 40);
+}
+
+.Search {
+    height: 7%;
+    width: 95%;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 10px 0 15px 0;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: #f4f4f4; /* Light gray background for better contrast */
+}
+
+.personList {
+    background-color: #ffffff; /* Ensuring the background color is explicitly set */
+    height: 10vh;
+    width: 90%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.personList:hover {
+    background-color: #888585; /* Light gray background on hover */
+}

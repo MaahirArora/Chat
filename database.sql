@@ -1,0 +1,56 @@
+CREATE DATABASE IF NOT EXISTS chat;
+USE chat;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(255) UNIQUE NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  token VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS messages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  sender_id INT NOT NULL,
+  receiver_id INT NOT NULL,
+  message_text TEXT NOT NULL,
+  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (sender_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (receiver_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS notifications (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user VARCHAR(255) NOT NULL,  -- Changed to VARCHAR(255)
+  sender VARCHAR(255) NOT NULL,  -- Changed to VARCHAR(255)
+  request_id INT NOT NULL,
+  type ENUM('friend_request', 'message', 'other') NOT NULL,
+  status ENUM('pending', 'accepted', 'rejected') NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user) REFERENCES users(username) ON DELETE CASCADE,  
+  FOREIGN KEY (sender) REFERENCES users(username) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS friend_requests (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  sender VARCHAR(255) NOT NULL,
+  receiver VARCHAR(255) NOT NULL,
+  status ENUM('pending', 'accepted', 'rejected') NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS friends (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user1 VARCHAR(255) NOT NULL,
+  user2 VARCHAR(255) NOT NULL,
+  FOREIGN KEY (user1) REFERENCES users(username) ON DELETE CASCADE,
+  FOREIGN KEY (user2) REFERENCES users(username) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS contacts (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(255) NOT NULL,
+  user_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+SELECT * FROM friends;

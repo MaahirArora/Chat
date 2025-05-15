@@ -1,0 +1,10 @@
+.Wrapper{
+    width: 100%;
+    min-height: 10%;
+    background-color: rgb(165, 165, 165);
+}
+
+h1{
+    margin-left: 10px;
+    color: black;
+}
