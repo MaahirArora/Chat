@@ -17,7 +17,7 @@ A real-time chatting application built with **React**, **Express**, and **MySQL*
 **Frontend:**  
 - React  
 - Axios  
-- Tailwind CSS / Material UI (if applicable)
+- Material UI
 
 **Backend:**  
 - Express.js  
@@ -25,7 +25,4 @@ A real-time chatting application built with **React**, **Express**, and **MySQL*
 - MySQL  
 - JWT (for authentication)  
 - Bcrypt (for password hashing)  
-- Socket.io (optional, for real-time messaging)
-
-## 📁 Project Structure
 
